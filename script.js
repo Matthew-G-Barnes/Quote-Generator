@@ -7,14 +7,14 @@ const loader = document.getElementById('loader')
 
 let apiQuotes = [];
 
-//Show Loading
+//Show Loader
 function loading() {
     loader.hidden = false;
     quoteContainer.hidden = true;
 }
 
-// fide Loading
-function compete() {
+//hide Loader
+function complete() {
     loader.hidden = true;
     quoteContainer.hidden = false;
 }
@@ -38,7 +38,7 @@ function newQuote() {
     }
     //Set Quote, Hide Loader
     quoteText.textContent = quote.text;
-    compete();
+    complete();
 }
 
 // Get Quotes from API
@@ -52,6 +52,7 @@ async function getQuotes() {
     } catch (error) {
         //Catch error here
         console.log(error);
+        getQuotes()
     }
 }
 
